@@ -1,0 +1,15 @@
+Algorithm :
+Here we have to implement 3 functions i.e. insert(), remove() and getRandom() in O(1) complexity.
+First thing that comes to our mind is to use HashSet/ HashMap as it provides O(1) insert and O(1) remove. 
+The problem is with the getRandom() method as how to implement such a method as map doesn't have any indexes.
+So we use ArrayList. ArrayList can provide O(1) insert and O(1) getRandom() but
+cannot provide O(1) remove, removing an element at a random index takes O(n) complexity.
+In order to tackle the remove method we can create a map which will consist of list values with their index in the list 
+and will try to delete from the end of the list as it is O(1). 
+
+So in case a call comes for delete() :
+We will find the index of the element to be deleted in O(1) complexity using map.
+We will put the value from the last index to the index found in step 1 in the ArrayList in O(1).
+We will remove the last element from the ArrayList in O(1), and it's entry from the map in O(1).
+We will finally update the index in the map for the value which has come to the index found in step 1 in O(1).
+So we will be able to perform delete() in O(1) as well.
