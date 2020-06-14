@@ -3,17 +3,15 @@ class Solution {
         List<Integer> result = new ArrayList<Integer>();
         if(nums==null||nums.length==0)
             return result;
+        Arrays.sort(nums);      //sorting the array
  
-        Arrays.sort(nums);
- 
-        int[] t = new int[nums.length];
+        int[] t = new int[nums.length];     //creating arrays to store largest
         int[] index = new int[nums.length];
-        Arrays.fill(t, 1);
+        Arrays.fill(t, 1);      //initislising elements
         Arrays.fill(index, -1);
- 
+        
         int max=0;
         int maxIndex=-1;
- 
         for(int i=0; i<t.length; i++){
             for(int j=i-1; j>=0; j--){
                 if(nums[i]%nums[j]==0 && t[j]+1>t[i]){
@@ -28,11 +26,12 @@ class Solution {
         }
  
         int i=maxIndex;
-        while(i>=0){
+        while(i>=0)
+        {
             result.add(nums[i]);
             i=index[i];
         }
-        Collections.sort(result);
+        Collections.sort(result);       //sorting array (not really necessary)
         return result;
     }
 }
